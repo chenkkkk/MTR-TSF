@@ -1,7 +1,6 @@
-# MTR-TSF
 Description: 
 
-The package includes the Python code of the MTR-TSF (Multi-target Regression via Target Specific Features) algorithm which focuses on handling the specifc features of each target  [1]. If you want to use the data set 'andro' run the program, Please execute 'python ./main andro'.
+The package includes the Python additional experiment code of the MTR-TSF algorithm, which uses the covariance to measure the dependencies between targets  [1]. If you want to use the data set 'andro' run the program, Please execute 'python ./main andro'.
 
 Reference: 
 
