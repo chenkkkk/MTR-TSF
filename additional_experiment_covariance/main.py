@@ -87,12 +87,12 @@ def get_linjie_matrix(x_train,y_train):
     cos_result = target_cos(y_train)
     return all_all_num,cos_result
 
-def select_feature(x_train,y_train,x_test,which_col,cos_result,all_all_num):
+def select_feature(x_train,y_train,x_test,which_col,cos_result,all_all_num,num_cluster):
     all_num = np.zeros((y_train.shape[0], y_train.shape[0]))
     for rr in range(len(cos_result)):
         all_num+=cos_result[rr,which_col]*all_all_num[rr]
     all_num =-(all_num- all_num[0,0])
-    num_cluster = config.all_config[text_file].get('num_cluster')
+    # num_cluster = config.all_config[text_file].get('num_cluster')
     M, C = kmediods.kMedoids(all_num, num_cluster,config.all_config[text_file].get('cluster_times'))
     train_add = []
     test_add = []
@@ -122,6 +122,7 @@ def target_cos(y_train):
 if __name__=='__main__':
 #    text_file = 'atp1d'
     text_file = sys.argv[1]
+    num_cluster = int(sys.argv[2])
     data = pd.read_csv(r'../data/'+text_file+'.arff',header = config.all_config[text_file].get('header') -4)
     data.reset_index(inplace=True)
     data.replace('?',np.nan,inplace=True)
@@ -151,7 +152,7 @@ if __name__=='__main__':
             all_all_num,cos_result = get_linjie_matrix(s_x_train,s_y_train)
         for i in range(label.shape[1]):
             if config.all_config[text_file].get('tift') == True:
-                x_train,x_test = select_feature(s_x_train,s_y_train,s_x_test,i,cos_result,all_all_num)
+                x_train,x_test = select_feature(s_x_train,s_y_train,s_x_test,i,cos_result,all_all_num,num_cluster)
             else:
                 x_train,x_test = s_x_train.copy(),s_x_test.copy()
             r1_list = []
