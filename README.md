@@ -5,7 +5,7 @@ The package includes the Python code of the MTR-TSF (Multi-target Regression via
 
 Reference: 
 
-[1] Jin Wang, Zhiliang Chen, Kaiwei Sun, Hang Li, Xin Deng. Multi-Target Regression via Target Specific Features.
+[1] Jin Wang, Zhiliang Chen, Kaiwei Sun, Hang Li, Xin Deng. "Multi-Target Regression via Target Specific Features." Knowledge-based Systems.
 
 ATTN: This package is free for academic usage. You can run it at your own risk.
 
